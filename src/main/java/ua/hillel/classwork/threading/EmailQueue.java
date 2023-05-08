@@ -5,9 +5,9 @@ public class EmailQueue {
     private String[] queue = new String[100];
 
     public synchronized String getOrWait() throws InterruptedException {
-        while (queue.isEmpty()) {
+        /*while (queue.isEmpty()) {
             wait();
-        }
+        }*/
         return queue[0];
     }
 
