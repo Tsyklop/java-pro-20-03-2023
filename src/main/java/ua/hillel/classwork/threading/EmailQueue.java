@@ -1,18 +1,23 @@
 package ua.hillel.classwork.threading;
 
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class EmailQueue {
 
-    private String[] queue = new String[100];
+    private Queue<String> queue = new LinkedList<>();
 
     public synchronized String getOrWait() throws InterruptedException {
-        /*while (queue.isEmpty()) {
+        while (queue.isEmpty()) {
             wait();
-        }*/
-        return queue[0];
+        }
+        return queue.poll();
     }
 
     public synchronized void add(String value) {
-        queue[0] = value;
+        queue.add(value);
         notifyAll();
     }
 

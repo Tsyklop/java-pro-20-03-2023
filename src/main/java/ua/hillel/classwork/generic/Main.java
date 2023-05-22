@@ -34,7 +34,12 @@ public class Main {
         //itemBox.add(1000); // ERROR
 
         //itemBox.contains()
-        
+
+        Box<Object> box = new Box<>();
+
+        box.add("");
+        box.add(1);
+
     }
 
     public static class Item {
