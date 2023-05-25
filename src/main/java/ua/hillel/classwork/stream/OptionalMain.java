@@ -13,6 +13,10 @@ public class OptionalMain {
 
     public static void main(String[] args) {
 
+        ExampleInterface exampleInterface = () -> {
+
+        };
+
         Optional<String> stringOptional = getRansomString();
 
         System.out.println(stringOptional);
@@ -43,8 +47,6 @@ public class OptionalMain {
         stringOptional.ifPresent(value -> {
 
             String otherValue = OptionalMain.methodForMethodReference(value);
-
-
 
         }); // lambda
         stringOptional.ifPresent(OptionalMain::methodForMethodReference); // method reference
@@ -124,6 +126,10 @@ public class OptionalMain {
             }
         }
 
+    }
+
+    public static interface ExampleInterface {
+        void doThing();
     }
 
 }

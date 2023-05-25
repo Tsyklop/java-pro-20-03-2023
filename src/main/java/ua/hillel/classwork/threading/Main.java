@@ -30,7 +30,7 @@ public class Main {
 
         startMills = System.currentTimeMillis();
 
-        int chunkSize = 400;
+        int chunkSize = 1000;
 
         int chunksCount = (int) Math.ceil((double) numbers.length / chunkSize);
 
@@ -57,7 +57,7 @@ public class Main {
             threads[i] = thread;
 
             thread.start();
-            thread.stop();
+            //thread.stop(); // НЕ ИСПОЛЬЗОВАТЬ!
 
         }
 
