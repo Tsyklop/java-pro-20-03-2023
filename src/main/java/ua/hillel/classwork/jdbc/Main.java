@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.Date;
 
 public class Main {
 
@@ -116,17 +117,14 @@ public class Main {
 
                     ResultSetMetaData metaData = rs.getMetaData();
 
-                    for (int i = 0; i < metaData.getColumnCount(); i++) {
-                        System.out.print(metaData.getColumnName(i + 1) + "|");
-                    }
-
-                    System.out.println();
-
                     while (rs.next()) {
-                        for (int i = 0; i < metaData.getColumnCount(); i++) {
-                            System.out.print(rs.getString(metaData.getColumnName(i + 1)) + "|");
-                        }
-                        System.out.println();
+
+                        Film film = new Film();
+
+                        film.filmId = rs.getInt("film_id");
+
+                        //films.add(film);
+
                     }
 
                 }
@@ -136,6 +134,27 @@ public class Main {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+    }
+
+    private static class Film {
+
+        //@Column("film_id")
+        private int filmId;
+
+        private String title;
+
+        private String description;
+
+        private Date releaseYear;
+
+        private int languageId;
+
+    }
+
+    private static class FilmExtended extends Film {
+
+        private String languageName;
 
     }
 
